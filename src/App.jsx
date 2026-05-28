@@ -241,40 +241,32 @@ export default function LandingCantante() {
 
       {/* PORTFOLIO ROTATIVO (CARRUSEL INFINITO) */}
       <section className="py-12 bg-black relative overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-48 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-48 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-48 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-16 md:w-48 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
-        <motion.div 
-          className="flex gap-4 w-max will-change-transform"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ ease: "linear", duration: 30, repeat: Infinity }}
-        >
-          {[
-            "/alfon9.webp",
-            "/alfon2.webp",
-            "/alfon12.webp",
-            "/alfon4.webp",
-            "/alfon5.webp",
-            "/alfon6.webp",
-            "/alfon13.webp",
-            "/alfon9.webp",
-            "/alfon2.webp",
-            "/alfon12.webp",
-            "/alfon4.webp",
-            "/alfon5.webp",
-            "/alfon6.webp",
-            "/alfon13.webp"
-          ].map((src, index) => (
-            <div key={index} className="w-64 md:w-96 shrink-0 overflow-hidden border border-neutral-900 bg-neutral-950">
-              <img 
-                loading="lazy"
-                src={src} 
-                alt={`Portfolio ${index + 1}`} 
-                className="w-full h-64 md:h-96 object-cover transition-all duration-700 opacity-80 hover:opacity-100 hover:scale-105" 
-              />
-            </div>
-          ))}
-        </motion.div>
+            <motion.div 
+              className="flex gap-4 w-max will-change-transform"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ ease: "linear", duration: 30, repeat: Infinity }}
+  >
+              {[
+               "/alfon9.webp", "/alfon2.webp", "/alfon12.webp", "/alfon4.webp", 
+               "/alfon5.webp", "/alfon6.webp", "/alfon13.webp", "/alfon9.webp", 
+               "/alfon2.webp", "/alfon12.webp", "/alfon4.webp", "/alfon5.webp", 
+               "/alfon6.webp", "/alfon13.webp"
+              ].map((src, index) => (
+               /* Agregamos transform-gpu al contenedor para forzar el renderizado por placa de video */
+              <div key={index} className="w-64 md:w-96 shrink-0 overflow-hidden border border-neutral-900 bg-neutral-950 transform-gpu">
+                <img 
+                   loading="lazy"
+                   src={src} 
+                   alt={`Portfolio ${index + 1}`} 
+               /* OPTIMIZACIÓN ACÁ: Cambiamos transition-all por transition-transform y sacamos el scale si sigue tironeando */
+                   className="w-full h-64 md:h-96 object-cover opacity-80 hover:opacity-100 transition-transform duration-500 ease-out hover:scale-102 transform-gpu" 
+                />
+              </div>
+               ))}
+            </motion.div>
       </section>
 
       {/* CONTACTO */}

@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+html {
+  /* Hace que el movimiento del scroll sea suave y continuo */
+  scroll-behavior: smooth;
+  /* Evita desbordamientos laterales raros que traban la pantalla */
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* Suaviza el renderizado de tipografías y elementos en pantallas de alta tasa de refresco */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Forzar optimización en todas las imágenes de la página */
+img {
+  will-change: transform, opacity;
+}
