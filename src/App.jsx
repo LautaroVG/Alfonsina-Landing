@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Camera, MessageCircle, Mic2, Music, ArrowRight, Mouse, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { supabase } from './supabaseClient';
+import MusicPlayer from './components/MusicPlayer';
 
 export default function LandingCantante() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -332,6 +333,7 @@ export default function LandingCantante() {
           © {new Date().getFullYear()} Alfonsina Guibelalde. Todos los derechos reservados.
         </p>
       </footer>
+      <MusicPlayer />
     </div>
   );
 }
