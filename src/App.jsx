@@ -96,7 +96,7 @@ export default function LandingCantante() {
           transition={{ duration: 1, delay: 0.5 }}
           className="absolute top-0 left-0 w-full flex justify-between items-center p-6 md:px-12 z-40 bg-black/50 backdrop-blur-sm border-b border-white/5"
         >
-          <span className="font-serif text-xl leading-tight text-white">Alfonsina<br/>GUIBELALDE</span>
+          <span className="font-serif text-xl leading-tight text-white">ALFONSINA<br/>GUIBELALDE</span>
           <a href="#contacto" className="text-sm font-medium tracking-wide uppercase text-neutral-300 hover:text-[#E6C762] transition-colors">
             Contacto
           </a>
@@ -308,9 +308,12 @@ export default function LandingCantante() {
             required
             placeholder="¿En qué te puedo ayudar?" 
             rows="1" 
-            className="w-full border-b border-neutral-800 bg-transparent py-3 text-white focus:outline-none focus:border-[#D4AF37] transition-colors placeholder:text-neutral-600 resize-none"
+            /* Agregamos clases para ocultar la scrollbar pero mantener la funcionalidad */
+            className="w-full border-b border-neutral-800 bg-transparent py-3 text-white focus:outline-none focus:border-[#D4AF37] transition-colors placeholder:text-neutral-600 resize-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           ></textarea>
-          <button type="submit" className="w-full bg-[#D4AF37] text-black py-4 uppercase tracking-widest text-xs font-bold hover:bg-[#B5952F] transition-colors">
+          
+          {/* Agregamos rounded-full para las esquinas bien redondas */}
+          <button type="submit" className="w-full bg-[#D4AF37] text-black py-4 rounded-full uppercase tracking-widest text-xs font-bold hover:bg-[#B5952F] transition-colors">
             Enviar Mensaje
           </button>
         </motion.form>
